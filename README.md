@@ -1,1 +1,1 @@
-# Duplicate Payment Finder
+# Duplicate Payment challenge
