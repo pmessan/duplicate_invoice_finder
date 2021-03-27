@@ -1,48 +1,28 @@
 import pandas as pd
 
-
 # read the data
 data = pd.read_csv("../data/joined_dataset_final.csv")
 
-
+# create a unique identifier made of the 4 fields which duplicates have in common
 data["unique_id"] = ( data["WRBTR"].astype("str") + data["BUKRS"].astype("str") + data["BLDAT"] + data["XBLNR"] )
-# print(data["unique_id"].shape)
-# data.to_csv("data/unique_id.csv")
-# print(data.iloc[0:5, 53])
-# print(data.head())
 
-# sub_data = data.iloc[0:30]
-
-# data.to_excel("../data/joined_dataset_final.xlsx")
-
+# data storage containers
 masterList = []
-duplicatesList = []
+duplicateIDs = []
 dataFrames = []
 
+# Build a master list of what we have seen as we go along
+# Aim to iterate just once through the file
+
 for i, row in data.iterrows():
-    # print("Index: ", i)
-    if row["unique_id"] not in masterList:
-        masterList.append(row["unique_id"])
-    else:   #if it's already there, we filter it out
-        duplicatesList.append(row)
-        
-# print("Duplicates found: ", len(duplicatesList))
+    if row["unique_id"] not in masterList:                  # if there's new entry, add to our 'seen' list
+        masterList.append(row["unique_id"]) 
+    else:                                                   # if the entry's already there, we filter it out
+        duplicateIDs.append(row["unique_id"])
 
+for i in duplicateIDs:                                      # use found duplicate IDs to pick out matching invoices
+    dataFrames.append(data.loc[data["unique_id"] == i])
 
-clms = list(data.columns)
-
-# df = pd.DataFrame(columns=clms)
-# for i in range(len(duplicatesList)):
-#     df.loc[i] = duplicatesList[i]
-
-# c = 1
-for i in duplicatesList:
-    # print("Duplicate " + str(c) + ": ")
-    # print(type(data["unique_id"]))
-    dataFrames.append(data.loc[data["unique_id"] == i["unique_id"]])
-    # c+=1
+# save the found duplicates to CSV
 dataFrames = pd.concat(dataFrames)
-# dataFrames.to_csv("../data/duplicates.csv")
-# dataFrames.to_excel("../data/duplicateDataFrames.xlsx")
-
-# print(df.head(8))
+dataFrames.to_csv("../data/duplicates.csv")
