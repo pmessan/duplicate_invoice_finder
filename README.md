@@ -1,8 +1,8 @@
 # Duplicate Payment Challenge - Duplid.de
 
 This repo contains my submission for [the duplicate invoice coding challenge](challenge.pdf) given to me by Duplid.de. The repo is organised as follows:
-* `src/` : Directory housing the source code using to complete the challenge. I made use of a makefile template for Python I created in [this repo](https://github.com/pmessan/makefile-python-template) to enable my application be run on multiple platfroms with minimal challenges.
-* `data/` : Directory housing the source data set `.csv` file and the found duplicates in a separate `.csv` file.
+* [](src/) : Directory housing the source code using to complete the challenge. I made use of a makefile template for Python I created in [this repo](https://github.com/pmessan/makefile-python-template) to enable my application be run on multiple platfroms with minimal challenges.
+* [](data/) : Directory housing the source data set `.csv` file and the found duplicates in a separate `.csv` file.
 
 
 # Instructions to Run
@@ -12,5 +12,4 @@ This repo contains my submission for [the duplicate invoice coding challenge](ch
 (if you have GitHub CLI installed)
 2. `cd duplicate_invoice_finder/src/`.
 3. `make run` to install dependencies and run the script.
-4. \[Optional\]  
-To clean up the virtual environment files generated, run `make clean` in `duplicate_invoice_finder/src/`.
+4. \[Optional\] To clean up the virtual environment files generated, run `make clean` in `duplicate_invoice_finder/src/`.
