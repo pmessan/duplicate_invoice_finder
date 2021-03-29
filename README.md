@@ -4,11 +4,13 @@ This repo contains my submission for [the duplicate invoice coding challenge](ch
 * [src/](src/) : Directory housing the source code used to complete the challenge. I made use of a makefile template for Python I created in [this repo](https://github.com/pmessan/makefile-python-template) to enable my application be run on multiple platforms with minimal challenges.
 * [data/](data/) : Directory housing the source dataset CSV file and the found duplicates in a separate CSV file.
 
-# Requirements
+# General Requirements
 
 - [Python 3.x](https://www.python.org/downloads/)
 - [Python virtualenv package](https://pypi.org/project/virtualenv/)
 - [make](https://www.gnu.org/software/make/)
+
+The specific package requirements for this program can be found in [src/requirements.txt](src/requirements.txt)
 
 # Instructions to Run
 
