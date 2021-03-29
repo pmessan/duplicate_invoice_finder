@@ -1,15 +1,20 @@
 import pandas as pd
 
-# read the data
-data = pd.read_csv("../data/joined_dataset_final.csv")
-
-# create a unique identifier made of the 4 fields which duplicates have in common
-data["unique_id"] = ( data["WRBTR"].astype("str") + data["BUKRS"].astype("str") + data["BLDAT"] + data["XBLNR"] )
-
-# data storage containers
+# vars
 masterList = []
 duplicateIDs = []
 dataFrames = []
+data = ""
+
+# read the data
+try :   
+    data = pd.read_csv("../data/joined_dataset_final.csv")
+except :
+    print("Error opening file. Please check the filename and try again. Exiting...")
+    exit()
+
+# create a unique identifier made of the 4 fields which duplicates have in common
+data["unique_id"] = ( data["WRBTR"].astype("str") + data["BUKRS"].astype("str") + data["BLDAT"] + data["XBLNR"] )
 
 # Build a master list of what we have seen as we go along
 # Aim to iterate just once through the file
