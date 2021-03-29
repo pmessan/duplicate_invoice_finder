@@ -19,4 +19,4 @@ This repo contains my submission for [the duplicate invoice coding challenge](ch
 3. `make run` to install dependencies and run the script.
 4. \[Optional\] To clean up the virtual environment files generated, run `make clean` in `duplicate_invoice_finder/src/`.
 
-Thanks for Viewing!
+Thanks for viewing!
